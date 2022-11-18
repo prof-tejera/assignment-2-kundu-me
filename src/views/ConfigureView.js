@@ -7,6 +7,7 @@ import { TimerContext } from "../AppContext";
 import ConfigureTimers from "../components/timers/ConfigureTimers";
 import ConfigureTimer from "../components/timers/ConfigureTimer";
 import Controls from "../components/generic/Controls"
+import Button from "../components/generic/Button"
 
 const ConfigureView = () => {
 
@@ -38,6 +39,7 @@ const ConfigureView = () => {
       <div style={{ display: "flex", border: "1px solid black", width: 500, height: 75, textAlign: "center", marginBottom: 10}}>
         <div style={{"marginTop": "25px"}}><label>Global Controls:</label></div>
         <Controls onClick={handleAppControlClick} valueStart="Start" valuePause={appTimerAction === 'Pause' ? 'Resume' : 'Pause'} valueStop="Stop" valueReset="Reset"/>
+        <Button displayName="Fast" value="Fast" className="btn btn-success" onClick={handleAppControlClick} />
       </div>
       <ConfigureTimers timers={timers} handleTimerUpdate={handleTimerUpdate} handleTimerDelete={handleTimerDelete} />
       <ConfigureTimer handleTimerAdd={handleTimerAdd} />

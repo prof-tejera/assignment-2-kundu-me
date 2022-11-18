@@ -53,6 +53,17 @@ export const AppContext = ({children}) => {
       } else {
         setAppTimerIndex(appTimerNextIndex);
       }
+    } else if (value === 'Fast') {
+      setAppTimerAction('Stop');
+      setTimeout(() => {
+        setAppTimerAction('Start');
+        const appTimerNextIndex = getNextValidIndex(appTimerIndex);
+        if (appTimerNextIndex === false) {
+          setAppTimerIndex(-1);
+        } else {
+          setAppTimerIndex(appTimerNextIndex);
+        }
+      }, 500);
     } else {
       // Error
     }
